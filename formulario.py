@@ -76,6 +76,19 @@ def binomial_distribution(n, k, p, q):
     """
     return sum(get_combinations_count(n, x)*math.pow(p, x)*math.pow(q, n-x) for x in k)
 
-# INCOMPLETE
-def get_poisson(x, p):
-    return sum(math.exp(-p)*(p**i)/math.factorial(i) for i in x)
+def poisson_distribution(x, lam=None, n=None, p=None):
+    """Computes Poisson Distribution
+    PARAMS:
+    - x : list of x values
+    - lam : lambda of possion dist
+    - n : number of tests
+    - p : prob
+    RETURNS:
+    - Poisson dist
+    """
+    if lam is None and (n is None or p is None) :
+        return 0
+    if lam is None:
+        lam = n*p
+    return sum(math.exp(-lam)*math.pow(lam, i)/math.factorial(i) for i in x)
+
