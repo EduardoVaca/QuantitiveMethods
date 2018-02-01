@@ -2,12 +2,12 @@ import math
 
 
 def get_combinations_count(n=None, r=None):
-    if not n or not r:
+    if  n is None or r is None:
         n, r = int(input('n:')), int(input('r:'))
     return math.floor(math.factorial(n)/(math.factorial(r)*math.factorial(n-r)))
 
 def get_permutations_count(n=None, r=None):
-    if not n or not r:
+    if n is None or r is None:
         n, r = int(input('n:')), int(input('r:'))
     return math.floor(math.factorial(n)/math.factorial(n-r))
 
@@ -26,6 +26,16 @@ def get_variance(prob_list=None, mean=None):
 def get_standard_dev(variance=None, prob_list=None):    
     return math.sqrt(get_variance(prob_list, mean=None) if not variance else variance)
 
-#print(get_combinations_count())
-#print(get_permutations_count())
-print(get_standard_dev())
+def binomial_distribution(n, k, p, q):
+    """Computes the Binomial Distribution
+    PARAMS:
+    - n : number of tests
+    - k : list of success
+    - p : success prob
+    - q : failure prob
+    """
+    return sum(get_combinations_count(n, x)*math.pow(p, x)*math.pow(q, n-x) for x in k)
+
+# INCOMPLETE
+def get_poisson(x, p):
+    return sum(math.exp(-p)*(p**i)/math.factorial(i) for i in x)
