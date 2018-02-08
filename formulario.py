@@ -90,5 +90,22 @@ def poisson_distribution(x, lam=None, n=None, p=None):
         return 0
     if lam is None:
         lam = n*p
-    return sum(math.exp(-lam)*math.pow(lam, i)/math.factorial(i) for i in x)
+    return sum(math.exp(-1*lam)*math.pow(lam, i)/math.factorial(i) for i in x)
 
+
+def exponential_distribution(limit1, lam=None, mean=None, limit2=None):
+    """Computes the exponential distribution
+    PARAMS:
+    - limit1 : limit for x
+    - lam : lam value for the exp dist
+    - mean : expected value
+    - limit2 : limit for x
+    RETURN:
+    - exponential dist
+    """
+    if not lam and mean is not None:
+        lam = 1/mean
+    if limit2 is not None:
+        return (1-math.exp(-1*lam*limit1)) - (1-math.exp(-1*lam*limit2)) if limit1 > limit2 else (1-math.exp(-1*lam*limit2)) - (1-math.exp(-1*lam*limit1))
+    else:
+        return (1-math.exp(-1*lam*limit1))
