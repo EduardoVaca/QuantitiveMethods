@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Formulario M&eacute;todos de Simulaci&oacute;</title>
+</head>
+<body>
+  <!-- <form name="f1">
+    Enter the Number:<input type="text" length="8" name="txt1"><br>
+    <input type="button" value="Find factiorial" onclick="getCombinations(txt1.value)">
+  </form> -->
+
+  <script type="text/javascript">
+
+
+  //get prob_list
+  function getProbList(array) {
+      var list= [];
+      for (var i = 0; i < array.length; i++) {
+        list.push(array[i]);
+      }
+        return list;
+  }
+  //Get factorial
+  //Input: Number you want get the factorial
+  function getFactorial(x){
+    if(x == 0) {
+      return 1;
+    }
+    if(x < 0 ) {
+      return undefined;
+    }
+    for(var i = x; --i; ) {
+      x *= i;
+    }
+    return x;
+  }
+
+  function getCombinations(n, r) {
+    var comb, rest;
+    var x, y, z;
+    rest = n - r;
+    x = getFactorial(n);
+    y = getFactorial(r);
+    z = getFactorial(rest);
+    comb = Math.floor(x/y*z);
+
+    return comb;
+
+  }
+
+  function getPermutations(n, r) {
+    var perm, rest;
+    var x, y;
+    rest = n - r;
+    x = getFactorial(n);
+    y = getFactorial(rest);
+    perm = Math.floor(x/y);
+
+    return perm;
+  }
+
+  function getMean(list) {
+    var total = 0;
+    for(var i = 0; i < list.length; i++) {
+      total += list[i];
+    }
+    var mean = total / list.length;
+    return mean;
+  }
+
+  function getVariance() {
+    prom
+    var mean = getMean(list);
+    var tot = 0;
+    for (var i = 0; i < list; i++) {
+      Math.pow(i-mean, 2)*y
+    }
+  }
+
+
+  function getStandardDeviation() {
+
+  }
+
+  function binomialDistribution(p, q, n, k) {
+    var k, n;
+    var p, q;
+    var dist = 0;
+    for (var i = 0; i < k; i++) {
+       dist +=  getCombinations(n, k) * Math.pow(p, k) * Math.pow(q, n-k);
+        console.log(dist);
+    }
+}
+
+  function poisssonDistribution(a,t, limI, limS){
+    var lamb, poisson;
+    var sum = 0;
+     lamb = a * t * -1;
+     //para cada i de inf a sup y suma 1
+     for (var i = limI; i < limS+1; i++) {
+       poisson = (Math.abs((Math.pow(Math.E, lamb)*Math.pow(lamb, i))/getFactorial(i)));
+       sum = sum + poisson;
+     }
+      return sum;
+  }
+
+  function exponentialDistribuiton() {
+
+  }
+
+  </script>
+</body>
+</html>
