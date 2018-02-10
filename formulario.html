@@ -6,109 +6,162 @@
 </head>
 <body>
   <!-- <form name="f1">
-    Enter the Number:<input type="text" length="8" name="txt1"><br>
-    <input type="button" value="Find factiorial" onclick="getCombinations(txt1.value)">
-  </form> -->
+  Enter the Number:<input type="text" length="8" name="txt1"><br>
+  <input type="button" value="Find factiorial" onclick="getCombinations(txt1.value)">
+</form> -->
 
-  <script type="text/javascript">
+<script type="text/javascript">
 
-
-  //get prob_list
-  function getProbList(array) {
-      var list= [];
-      for (var i = 0; i < array.length; i++) {
-        list.push(array[i]);
-      }
-        return list;
+//get probability by frequence
+function getFrequency(arr, n) {
+  let count = 0;
+  let freq = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (n == arr[i])
+    freq++;
   }
-  //Get factorial
-  //Input: Number you want get the factorial
-  function getFactorial(x){
-    if(x == 0) {
-      return 1;
-    }
-    if(x < 0 ) {
-      return undefined;
-    }
-    for(var i = x; --i; ) {
-      x *= i;
-    }
-    return x;
-  }
-
-  function getCombinations(n, r) {
-    var comb, rest;
-    var x, y, z;
-    rest = n - r;
-    x = getFactorial(n);
-    y = getFactorial(r);
-    z = getFactorial(rest);
-    comb = Math.floor(x/y*z);
-
-    return comb;
-
-  }
-
-  function getPermutations(n, r) {
-    var perm, rest;
-    var x, y;
-    rest = n - r;
-    x = getFactorial(n);
-    y = getFactorial(rest);
-    perm = Math.floor(x/y);
-
-    return perm;
-  }
-
-  function getMean(list) {
-    var total = 0;
-    for(var i = 0; i < list.length; i++) {
-      total += list[i];
-    }
-    var mean = total / list.length;
-    return mean;
-  }
-
-  function getVariance() {
-    prom
-    var mean = getMean(list);
-    var tot = 0;
-    for (var i = 0; i < list; i++) {
-      Math.pow(i-mean, 2)*y
-    }
-  }
-
-
-  function getStandardDeviation() {
-
-  }
-
-  function binomialDistribution(p, q, n, k) {
-    var k, n;
-    var p, q;
-    var dist = 0;
-    for (var i = 0; i < k; i++) {
-       dist +=  getCombinations(n, k) * Math.pow(p, k) * Math.pow(q, n-k);
-        console.log(dist);
-    }
+  return freq;
 }
 
-  function poisssonDistribution(a,t, limI, limS){
-    var lamb, poisson;
-    var sum = 0;
-     lamb = a * t * -1;
-     //para cada i de inf a sup y suma 1
-     for (var i = limI; i < limS+1; i++) {
-       poisson = (Math.abs((Math.pow(Math.E, lamb)*Math.pow(lamb, i))/getFactorial(i)));
-       sum = sum + poisson;
-     }
-      return sum;
+//get probability of an event happening
+function getProbability(arr, n) {
+  let count = 0;
+  for (var i = 0; i < arr.length; i++) {
+    count++;
   }
+  let prob = getFrequency(arr,n) / count;
+  return prob;
+}
 
-  function exponentialDistribuiton() {
-
+//Get factorial
+//Input: Number you want get the factorial
+function getFactorial(x){
+  if(x == 0) {
+    return 1;
   }
+  if(x < 0 ) {
+    return undefined;
+  }
+  for(let i = x; --i; ) {
+    x *= i;
+  }
+  return x;
+}
 
-  </script>
+//get factorial
+function getPermutations(n, r) {
+  let perm, rest;
+  let x, y;
+  rest = n - r;
+  x = getFactorial(n);
+  y = getFactorial(rest);
+  perm = Math.floor(x/y);
+
+  return perm;
+}
+//Get combinations
+function getCombinations(n, r) {
+  let comb, rest;
+  let x, y, z;
+  rest = n - r;
+  x = getFactorial(n);
+  y = getFactorial(r);
+  z = getFactorial(rest);
+  comb = Math.floor(x/y*z);
+
+  return comb;
+
+}
+//Get discrete probability
+function getDiscreteProbability(arr, limI, limS) {
+  let disc = 0;
+  for (var i = limI; i <= limS; i++) {
+    disc += getProbability(arr, i);
+  }
+  return disc;
+}
+
+
+
+//get prob_list
+function getProbList(array) {
+  let list= [];
+  for (let i = 0; i < array.length; i++) {
+    list.push(array[i]);
+  }
+  return list;
+}
+
+
+//getMean
+function getMean(list) {
+  let total = 0;
+  for(let i = 0; i < list.length; i++) {
+    total += list[i];
+  }
+  let mean = total / list.length;
+  return mean;
+}
+
+//Get Variance
+function getVariance(list) {
+  let mean = getMean(list);
+  let tot = 0;
+  var last = list[list.length - 1];
+  for (let i = 0; i < list.length; i++) {
+    tot += Math.pow(list[i]-mean, 2)/last;
+    console.log("bal")
+  }
+  return tot;
+}
+
+function getStandardDeviation(list) {
+  let mean = getMean(list);
+  let variance = getVariance(list);
+  let std = Math.sqrt(variance);
+
+  console.log("mean: " + mean);
+  console.log("variance: " + variance);
+  console.log("standard deviation: "+ std);
+}
+//Get binomial Distribution
+function binomialDistribution(p, q, n, k) {
+  let k, n;
+  let p, q;
+  let dist = 0;
+  for (let i = 0; i < k; i++) {
+    dist +=  getCombinations(n, k) * Math.pow(p, k) * Math.pow(q, n-k);
+    console.log(dist);
+  }
+}
+
+//Get poissonDistribution
+function poisssonDistribution(a,t, limI, limS){
+  let lamb, poisson;
+  let sum = 0;
+  lamb = a * t * -1;
+  //para cada i de inf a sup y suma 1
+  for (let i = limI; i < limS+1; i++) {
+    poisson = (Math.abs((Math.pow(Math.E, lamb)*Math.pow(lamb, i))/getFactorial(i)));
+    sum = sum + poisson;
+  }
+  return sum;
+}
+
+function exponentialDistribuiton(list, limS, limI) {
+  let lamb = 1 / getMean(list);
+  let low= (-1*lamb*limI);
+  let high= (-1*lamb*limS);
+  if (limS< 1) {
+    dist = 1 - Math.pow(Math.E, high)
+  }
+  else {
+    dist = (1 - Math.pow(Math.E, high)) - (1 - Math.pow(Math.E, low))
+  }
+  console.log("lambda:" + lamb);
+  return dist;
+}
+
+</script>
 </body>
 </html>
