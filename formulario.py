@@ -50,11 +50,11 @@ def get_variance(prob_list=None, mean=None):
     RETURNS:
     - variance of list
     """
-    prob_list = get_prob_list() if not prob_list else prob_list
+    prob_list = get_prob_list() if not prob_list and mean is None else prob_list
     mean = get_mean(prob_list) if not mean else mean
     return sum(math.pow(x-mean, 2)*y for x,y in prob_list)
 
-def get_standard_dev(variance=None, prob_list=None):
+def get_standard_dev(prob_list=None, variance=None):
     """Compute the standard devaition of a prob list
     PARAMS:
     - variance : variance of list
@@ -63,6 +63,46 @@ def get_standard_dev(variance=None, prob_list=None):
     - standard dev of list
     """  
     return math.sqrt(get_variance(prob_list, mean=None) if not variance else variance)
+
+def get_uniform_values():
+    """Get list of values for uniform distribution
+    RETURNS:
+    - list of values
+    """
+    return [int(input('value {}: '.format(x+1))) for x in range(int(input('n of values: ')))]
+
+def get_uniform_mean(values=None):
+    """Compute uniform mean
+    PARAMS:
+    - values : list of values
+    RETURNS:
+    - mean of values
+    """
+    if not values:
+        values = get_uniform_values()
+    return sum(x/len(values) for x in values)
+
+def get_uniform_variance(values=None, mean=None):
+    """Compute uniform variance
+    PARAMS:
+    - values : list of values
+    - mean : uniform mean
+    RETURNS:
+    - variance of values
+    """
+    values = get_uniform_values() if not values and mean is None else values
+    mean = get_uniform_mean(values) if mean is None else mean
+    return sum(math.pow(x-mean, 2)/len(values) for x in values)
+
+def get_uniform_standard_dev(values=None, variance=None):
+    """Compute uniform standard dev
+    PARAMS:
+    - values : list of values
+    - variance : uniform variance
+    RETURNS:
+    - standard dev of values
+    """
+    return math.sqrt(get_uniform_variance(values) if not variance else variance)
 
 def binomial_distribution(n, k, p, q):
     """Computes the Binomial Distribution
