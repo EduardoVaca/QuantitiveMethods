@@ -1,167 +1,226 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Formulario M&eacute;todos de Simulaci&oacute;</title>
-</head>
-<body>
-  <!-- <form name="f1">
-  Enter the Number:<input type="text" length="8" name="txt1"><br>
-  <input type="button" value="Find factiorial" onclick="getCombinations(txt1.value)">
-</form> -->
 
-<script type="text/javascript">
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- common.css -->
+      <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
+      <!-- ace-static.css -->
+      <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
+      <style>.ace-monokai .ace_gutter {background: #2F3129;color: #8F908A}.ace-monokai .ace_print-margin {width: 1px;background: #555651}.ace-monokai {background-color: #272822;color: #F8F8F2}.ace-monokai .ace_cursor {color: #F8F8F0}.ace-monokai .ace_marker-layer .ace_selection {background: #49483E}.ace-monokai.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #272822;}.ace-monokai .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-monokai .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #49483E}.ace-monokai .ace_marker-layer .ace_active-line {background: #202020}.ace-monokai .ace_gutter-active-line {background-color: #272727}.ace-monokai .ace_marker-layer .ace_selected-word {border: 1px solid #49483E}.ace-monokai .ace_invisible {color: #52524d}.ace-monokai .ace_entity.ace_name.ace_tag,.ace-monokai .ace_keyword,.ace-monokai .ace_meta.ace_tag,.ace-monokai .ace_storage {color: #F92672}.ace-monokai .ace_punctuation,.ace-monokai .ace_punctuation.ace_tag {color: #fff}.ace-monokai .ace_constant.ace_character,.ace-monokai .ace_constant.ace_language,.ace-monokai .ace_constant.ace_numeric,.ace-monokai .ace_constant.ace_other {color: #AE81FF}.ace-monokai .ace_invalid {color: #F8F8F0;background-color: #F92672}.ace-monokai .ace_invalid.ace_deprecated {color: #F8F8F0;background-color: #AE81FF}.ace-monokai .ace_support.ace_constant,.ace-monokai .ace_support.ace_function {color: #66D9EF}.ace-monokai .ace_fold {background-color: #A6E22E;border-color: #F8F8F2}.ace-monokai .ace_storage.ace_type,.ace-monokai .ace_support.ace_class,.ace-monokai .ace_support.ace_type {font-style: italic;color: #66D9EF}.ace-monokai .ace_entity.ace_name.ace_function,.ace-monokai .ace_entity.ace_other,.ace-monokai .ace_entity.ace_other.ace_attribute-name,.ace-monokai .ace_variable {color: #A6E22E}.ace-monokai .ace_variable.ace_parameter {font-style: italic;color: #FD971F}.ace-monokai .ace_string {color: #E6DB74}.ace-monokai .ace_comment {color: #75715E}.ace-monokai .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ0FD0ZXBzd/wPAAjVAoxeSgNeAAAAAElFTkSuQmCC) right repeat-y}</style>
+      <!-- export.css -->
+      <style>
+        body{margin:0 auto;max-width:800px;line-height:1.4}
+        #nav{margin:5px 0 10px;font-size:15px}
+        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
+        #contentarea{font-size:15px;margin:16px 0}
+        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
+        .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
+        .latex-cell{white-space:pre-wrap;}
+      </style>
+      <!-- User CSS -->
+      <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
+    </head>
+    <body>
 
-//get probability by frequence
-function getFrequency(arr, n) {
-  let count = 0;
-  let freq = 0;
-  for (let i = 0; i < arr.length; i++) {
-    if (n == arr[i])
-    freq++;
-  }
-  return freq;
-}
+      <div id="titlearea">
+        <h2>Formulario metodos numericos</h2>
+      </div>
+      <div id="contentarea"><div class="cell text-cell"><b><u>Probabilidad de&nbsp;frecuencia</u></b><div><b>P(A) = n/N</b></div><div><b><br></b></div><div><b>n= número de elementos del evento A</b></div><div><b>N= número de elementos de la muestra o población</b></div></div><div class="cell code-cell"><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_comment">//para calcular frecuencia es necesario pasar la función</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">frequency</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">a</span><span class="ace_punctuation ace_operator">,</span><span class="ace_identifier">n</span><span class="ace_paren ace_rparen">)</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_comment">//Dondé a es el array de posibles elementos</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_comment">// y n el elemento del que se quiere conocer la frequencia</span>
+</div></div></div></div><div class="cell text-cell"><b>Factorial: </b>Producto de todos los numeros positivos desde 1…n</div><div class="cell text-cell">Donde x es el numero que se quiere factorizar</div><div class="cell code-cell"><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_comment">//Para llamar esta funcion es necesario</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">getFactorial</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">x</span><span class="ace_paren ace_rparen">)</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_comment">//dondé x es el numero a factorizar</span>
+</div></div></div></div><div class="cell text-cell"><b>Probability:</b>&nbsp;given a list of elements, what’s the probability of a certain event happening</div><div class="cell text-cell">Takes a list of elements and n = the number you want to find the probability</div><div class="cell code-cell"><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">getProbability</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">arr</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">n</span><span class="ace_paren ace_rparen">)</span>
+</div></div></div></div><div class="cell text-cell"></div><div class="cell text-cell"><b>Permutaciones: </b>Número de formas para seleccionar r de n elementos cuando el orden es importante</div><div class="cell text-cell"><img src="resources/FAC61648D2AB88714EFE76F33DDA3DAC.png" alt="Screen Shot 2018-02-10 at 13.42.43.png" width="214" height="103"><br></div><div class="cell code-cell"><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_comment">//para llamar esta funcioón es necesario llamar</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">getPermutations</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">n</span><span class="ace_punctuation ace_operator">,</span><span class="ace_identifier">r</span><span class="ace_paren ace_rparen">)</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_comment">//dondé n es el universo y r son los elementos a seleccionar</span>
+</div></div></div></div><div class="cell text-cell"><b>Combinaciones: </b>Número de formas para seleccionar r de n elementos cuando el orden no es&nbsp;importante&nbsp;</div><div class="cell text-cell"><img src="resources/9ED7BE14FA7847F9877C1EE439EAA337.png" alt="Screen Shot 2018-02-10 at 13.42.48.png" width="286" height="117"></div><div class="cell code-cell"><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_comment">//para llamar esta funcioón es necesario llamar</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">getCombinations</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">n</span><span class="ace_punctuation ace_operator">,</span><span class="ace_identifier">r</span><span class="ace_paren ace_rparen">)</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_comment">//dondé n es el universo y r son los elementos a seleccionar</span>
+</div></div></div></div><div class="cell text-cell"></div><div class="cell text-cell"><h2><b><u>Funciones de densidad de probabilidad</u></b></h2></div><div class="cell text-cell"><b>Media varianza y disviación estándar</b><br></div><div class="cell text-cell">Varianza, media, desviación estandar:<div>Todos reciben una lista de elementos</div></div><div class="cell code-cell"><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_comment">//Media</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">getMean</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">list</span><span class="ace_paren ace_rparen">)</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_comment">//Varianza</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">getVariance</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">list</span><span class="ace_paren ace_rparen">)</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_comment">//Desviación estandar</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">getStandardDeviation</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">list</span><span class="ace_paren ace_rparen">)</span>
+</div></div></div></div><div class="cell text-cell"><img src="resources/BECEE2044D35B74F3B7798D7875B435D.png" alt="Screen Shot 2018-02-10 at 14.20.49.png" width="350" height="123"></div><div class="cell text-cell"><h3>Poisson distribution</h3></div><div class="cell text-cell">To call a poisson distribution you will need:</div><div class="cell code-cell"><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">poisssonDistribution</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">a</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">t</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">limI</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">limS</span><span class="ace_paren ace_rparen">)</span>
+</div></div></div></div><div class="cell code-cell"><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">poisssonDistributionLambda</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">lambda</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">limI</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">limS</span><span class="ace_paren ace_rparen">)</span>
+</div></div></div></div><div class="cell text-cell"><h3>Exponential distribution</h3></div><div class="cell code-cell"><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">exponentialdistribution</span><span class="ace_paren ace_lparen">([</span><span class="ace_identifier">list</span><span class="ace_paren ace_rparen">]</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">limSuperior</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">limInferior</span><span class="ace_paren ace_rparen">)</span>
+</div></div></div></div><div class="cell code-cell"><div class="ace-monokai"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_storage ace_type">function</span> <span class="ace_entity ace_name ace_function">exponentialDistribuiton</span><span class="ace_paren ace_lparen">(</span><span class="ace_variable ace_parameter">list</span><span class="ace_punctuation ace_operator">, </span><span class="ace_variable ace_parameter">limS</span><span class="ace_punctuation ace_operator">, </span><span class="ace_variable ace_parameter">limI</span><span class="ace_paren ace_rparen">)</span> <span class="ace_paren ace_lparen">{</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>  <span class="ace_storage ace_type">let</span> <span class="ace_identifier">lamb</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_constant ace_numeric">1</span> <span class="ace_keyword ace_operator">/</span> <span class="ace_identifier">getMean</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">list</span><span class="ace_paren ace_rparen">)</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>  <span class="ace_storage ace_type">let</span> <span class="ace_identifier">low</span><span class="ace_keyword ace_operator">=</span> <span class="ace_paren ace_lparen">(</span><span class="ace_constant ace_numeric">-1</span><span class="ace_keyword ace_operator">*</span><span class="ace_identifier">lamb</span><span class="ace_keyword ace_operator">*</span><span class="ace_identifier">limI</span><span class="ace_paren ace_rparen">)</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>  <span class="ace_storage ace_type">let</span> <span class="ace_identifier">high</span><span class="ace_keyword ace_operator">=</span> <span class="ace_paren ace_lparen">(</span><span class="ace_constant ace_numeric">-1</span><span class="ace_keyword ace_operator">*</span><span class="ace_identifier">lamb</span><span class="ace_keyword ace_operator">*</span><span class="ace_identifier">limS</span><span class="ace_paren ace_rparen">)</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>  <span class="ace_keyword">if</span> <span class="ace_paren ace_lparen">(</span><span class="ace_identifier">limS</span><span class="ace_keyword ace_operator">&lt;</span> <span class="ace_constant ace_numeric">1</span><span class="ace_paren ace_rparen">)</span> <span class="ace_paren ace_lparen">{</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_identifier">dist</span> <span class="ace_keyword ace_operator">=</span>  <span class="ace_variable ace_language">Math</span><span class="ace_punctuation ace_operator">.</span><span class="ace_support ace_function">pow</span><span class="ace_paren ace_lparen">(</span><span class="ace_variable ace_language">Math</span><span class="ace_punctuation ace_operator">.</span><span class="ace_support ace_constant">E</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">high</span><span class="ace_paren ace_rparen">)</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>  <span class="ace_paren ace_rparen">}</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>  <span class="ace_keyword">else</span> <span class="ace_paren ace_lparen">{</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_identifier">dist</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_paren ace_lparen">(</span><span class="ace_constant ace_numeric">1</span> <span class="ace_keyword ace_operator">-</span> <span class="ace_variable ace_language">Math</span><span class="ace_punctuation ace_operator">.</span><span class="ace_support ace_function">pow</span><span class="ace_paren ace_lparen">(</span><span class="ace_variable ace_language">Math</span><span class="ace_punctuation ace_operator">.</span><span class="ace_support ace_constant">E</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">high</span><span class="ace_paren ace_rparen">))</span> <span class="ace_keyword ace_operator">-</span> <span class="ace_paren ace_lparen">(</span><span class="ace_constant ace_numeric">1</span> <span class="ace_keyword ace_operator">-</span> <span class="ace_variable ace_language">Math</span><span class="ace_punctuation ace_operator">.</span><span class="ace_support ace_function">pow</span><span class="ace_paren ace_lparen">(</span><span class="ace_variable ace_language">Math</span><span class="ace_punctuation ace_operator">.</span><span class="ace_support ace_constant">E</span><span class="ace_punctuation ace_operator">,</span> <span class="ace_identifier">low</span><span class="ace_paren ace_rparen">))</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>  <span class="ace_paren ace_rparen">}</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>  <span class="ace_storage ace_type">console</span><span class="ace_punctuation ace_operator">.</span><span class="ace_support ace_function ace_firebug">log</span><span class="ace_paren ace_lparen">(</span><span class="ace_string">"lambda:"</span> <span class="ace_keyword ace_operator">+</span> <span class="ace_identifier">lamb</span><span class="ace_paren ace_rparen">)</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>  <span class="ace_keyword">return</span> <span class="ace_identifier">dist</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_paren ace_rparen">}</span>
+</div></div></div></div><div class="cell text-cell"></div><div class="cell text-cell"></div><div class="cell text-cell"></div><div class="cell text-cell"></div><div class="cell text-cell"></div><div class="cell text-cell"></div><div class="cell text-cell"></div></div>
+      <script>
+      //get probability by frequence
+      function getFrequency(arr, n) {
+        let count = 0;
+        let freq = 0;
+        for (let i = 0; i < arr.length; i++) {
+          if (n == arr[i])
+          freq++;
+        }
+        return freq;
+      }
 
-//get probability of an event happening
-function getProbability(arr, n) {
-  let count = 0;
-  for (var i = 0; i < arr.length; i++) {
-    count++;
-  }
-  let prob = getFrequency(arr,n) / count;
-  return prob;
-}
+      //get probability of an event happening
+      function getProbability(arr, n) {
+        let count = 0;
+        for (var i = 0; i < arr.length; i++) {
+          count++;
+        }
+        let prob = getFrequency(arr,n) / count;
+        return prob;
+      }
 
-//Get factorial
-//Input: Number you want get the factorial
-function getFactorial(x){
-  if(x == 0) {
-    return 1;
-  }
-  if(x < 0 ) {
-    return undefined;
-  }
-  for(let i = x; --i; ) {
-    x *= i;
-  }
-  return x;
-}
+      //Get factorial
+      //Input: Number you want get the factorial
+      function getFactorial(x){
+        if(x == 0) {
+          return 1;
+        }
+        if(x < 0 ) {
+          return undefined;
+        }
+        for(let i = x; --i; ) {
+          x *= i;
+        }
+        return x;
+      }
 
-//get factorial
-function getPermutations(n, r) {
-  let perm, rest;
-  let x, y;
-  rest = n - r;
-  x = getFactorial(n);
-  y = getFactorial(rest);
-  perm = Math.floor(x/y);
+      //get factorial
+      function getPermutations(n, r) {
+        let perm, rest;
+        let x, y;
+        rest = n - r;
+        x = getFactorial(n);
+        y = getFactorial(rest);
+        perm = Math.floor(x/y);
 
-  return perm;
-}
-//Get combinations
-function getCombinations(n, r) {
-  let comb, rest;
-  let x, y, z;
-  rest = n - r;
-  x = getFactorial(n);
-  y = getFactorial(r);
-  z = getFactorial(rest);
-  comb = Math.floor(x/y*z);
+        return perm;
+      }
+      //Get combinations
+      function getCombinations(n, r) {
+        let comb, rest;
+        let x, y, z;
+        x = getFactorial(n);
+        y = getFactorial(r);
+        z = getFactorial(n-r);
+        comb = Math.floor(x/(y*z));
+        return comb;
 
-  return comb;
+      }
+      //Get discrete probability
+      function getDiscreteProbability(arr, limI, limS) {
+        let disc = 0;
+        for (var i = limI; i <= limS; i++) {
+          disc += getProbability(arr, i);
+        }
+        return disc;
+      }
 
-}
-//Get discrete probability
-function getDiscreteProbability(arr, limI, limS) {
-  let disc = 0;
-  for (var i = limI; i <= limS; i++) {
-    disc += getProbability(arr, i);
-  }
-  return disc;
-}
-
-
-
-//get prob_list
-function getProbList(array) {
-  let list= [];
-  for (let i = 0; i < array.length; i++) {
-    list.push(array[i]);
-  }
-  return list;
-}
+      //get prob_list
+      function getProbList(array) {
+        let list= [];
+        for (let i = 0; i < array.length; i++) {
+          list.push(array[i]);
+        }
+        return list;
+      }
 
 
-//getMean
-function getMean(list) {
-  let total = 0;
-  for(let i = 0; i < list.length; i++) {
-    total += list[i];
-  }
-  let mean = total / list.length;
-  return mean;
-}
+      //getMean
+      function getMean(list) {
+        let total = 0;
+        for(let i = 0; i < list.length; i++) {
+          total += list[i];
+        }
+        let mean = total / list.length;
+        return mean;
+      }
 
-//Get Variance
-function getVariance(list) {
-  let mean = getMean(list);
-  let tot = 0;
-  var last = list[list.length - 1];
-  for (let i = 0; i < list.length; i++) {
-    tot += Math.pow(list[i]-mean, 2)/last;
-    console.log("bal")
-  }
-  return tot;
-}
+      //Get Variance
+      function getVariance(list) {
+        let mean = getMean(list);
+        let tot = 0;
+        var last = list[list.length - 1];
+        for (let i = 0; i < list.length; i++) {
+          tot += Math.pow(list[i]-mean, 2)/last;
+          console.log("bal")
+        }
+        return tot;
+      }
 
-function getStandardDeviation(list) {
-  let mean = getMean(list);
-  let variance = getVariance(list);
-  let std = Math.sqrt(variance);
+      function getStandardDeviation(list) {
+        let mean = getMean(list);
+        let variance = getVariance(list);
+        let std = Math.sqrt(variance);
 
-  console.log("mean: " + mean);
-  console.log("variance: " + variance);
-  console.log("standard deviation: "+ std);
-}
-//Get binomial Distribution
-function binomialDistribution(p, q, n, k) {
-  let k, n;
-  let p, q;
-  let dist = 0;
-  for (let i = 0; i < k; i++) {
-    dist +=  getCombinations(n, k) * Math.pow(p, k) * Math.pow(q, n-k);
-    console.log(dist);
-  }
-}
+        console.log("mean: " + mean);
+        console.log("variance: " + variance);
+        console.log("standard deviation: "+ std);
+      }
+      //Get binomial Distribution
+      function binomialDistribution(p, q, n, k) {
+        // let k, n;
+        // let p, q;
+        let bin = 0;
+        for (let i = 0; i < k+1; i++) {
+          bin +=  getCombinations(n, i) * Math.pow(p, i) * Math.pow(q, n-i);
+        }
+        // bin =  getCombinations(n, k) * Math.pow(p, k) * Math.pow(q, n-k);
+        return bin;
+      }
 
-//Get poissonDistribution
-function poisssonDistribution(a,t, limI, limS){
-  let lamb, poisson;
-  let sum = 0;
-  lamb = a * t * -1;
-  //para cada i de inf a sup y suma 1
-  for (let i = limI; i < limS+1; i++) {
-    poisson = (Math.abs((Math.pow(Math.E, lamb)*Math.pow(lamb, i))/getFactorial(i)));
-    sum = sum + poisson;
-  }
-  return sum;
-}
+      //Get poissonDistribution
+      function poisssonDistribution(a,t, limI, limS){
+        let lamb;
+        let poisson = 0;
+        lamb = a * t ;
+        // para cada i de inf a sup y suma 1
+        for (let i = limI; i <= limS; i++) {
+          poisson += (Math.abs((Math.pow(Math.E, -1*lamb)*Math.pow(lamb, i))/getFactorial(i)));
+        }
+        // poisson = (Math.abs((Math.pow(Math.E, -1*lamb)*Math.pow(lamb, limI))/getFactorial(limI)));
+        return poisson;
+      }
 
-function exponentialDistribuiton(list, limS, limI) {
-  let lamb = 1 / getMean(list);
-  let low= (-1*lamb*limI);
-  let high= (-1*lamb*limS);
-  if (limS< 1) {
-    dist = 1 - Math.pow(Math.E, high)
-  }
-  else {
-    dist = (1 - Math.pow(Math.E, high)) - (1 - Math.pow(Math.E, low))
-  }
-  console.log("lambda:" + lamb);
-  return dist;
-}
+      //Get poissonDistribution with lambda
+      function poisssonDistributionLambda(lambda, limI, limS){
+        let poisson = 0;
+        for (let i = limI; i < limS+1; i++) {
+          poisson += (Math.abs((Math.pow(Math.E, -1*lambda)*Math.pow(lambda, i))/getFactorial(i)));
+        }
+        // poisson = (Math.abs((Math.pow(Math.E, -1*lamb)*Math.pow(lamb, Lim))/getFactorial(i)));
+        return poisson;
+      }
 
-</script>
-</body>
-</html>
+      //poisson con lambda7
+      function exponentialDistribuiton(lamb, limS, limI) {
+
+        let low= (-1*lamb*limI);
+        let high= (-1*lamb*limS);
+        if (limS< 1) {
+          dist = 1 - Math.pow(Math.E, high) - 1
+        }
+        else {
+          dist = (1 - Math.pow(Math.E, high)) - (1 - Math.pow(Math.E, low)) -1
+        }
+        console.log("lambda:" + lamb);
+        return dist;
+      }</script>
+    </body>
+    </html>
