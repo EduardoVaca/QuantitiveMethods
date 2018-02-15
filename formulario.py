@@ -1,3 +1,6 @@
+"""
+Author: Eduardo Vaca
+"""
 import math
 
 
@@ -108,7 +111,7 @@ def binomial_distribution(n, k, p, q):
     """Computes the Binomial Distribution
     PARAMS:
     - n : number of tests
-    - k : list of success
+    - k : list of values
     - p : success prob
     - q : failure prob
     RETURNS:
