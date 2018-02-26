@@ -1,3 +1,8 @@
+""" 
+Generating random numbers with Acceptance-Decline method
+Date: 26/Feb/2018
+"""
+
 import random
 
 def get_max_m(funcs):
@@ -30,7 +35,6 @@ def accept_decline_method(funcs, n):
             values.append(x)
         counter += 1
     print('{} accepted from {} iterations'.format(n, counter))
-    print('MEAN: {}'.format(sum(values)/len(values)))
     return values
 
 
@@ -50,8 +54,12 @@ def main():
             funcs.append((my_func, (limit1, limit2)))
         else:
             funcs.append((myfunc_2, (limit1, limit2)))
-        
-    print(accept_decline_method(funcs, n_iterations))
+    
+    x_stars = accept_decline_method(funcs, n_iterations)
+    print('MEAN: {}'.format(sum(x_stars)/len(x_stars)))
+    print('MIN: {}'.format(min(x_stars)))
+    print('MAX: {}'.format(max(x_stars)))
+    print(x_stars)
 
 if __name__ == "__main__":
     main()
