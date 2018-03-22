@@ -122,5 +122,19 @@ def mms_pn(lam, mu, s, n_s):
     p0 = mms_p0(lam, mu, s)
     return [(pow(lam/mu, n)*p0)/math.factorial(n) for n in n_s if n >= 0 and n <= s] + [(pow(lam/mu, n)*p0)/(math.factorial(s)*pow(s, n-s)) for n in n_s if n > s]
 
+def mms_costs(lam, mu, s, cs, cw):
+    """Method that computes Model M/M/S Costs
+    PARAMS:
+    - lam : rate of arrivals
+    - mu : rate of service
+    - s : number of servers to operate
+    - cs : cost of each server
+    - cw : cost of wait
+    """
+    perf_results = mms_performance(lam, mu, s)
+    results = {'Ccs': cs*s, 'CwLs': cw*perf_results['Ls'], 'Ls': perf_results['Ls']}
+    results['CTotal'] = results['Ccs']+results['CwLs']
+    return results
+
 
 
