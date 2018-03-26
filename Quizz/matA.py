@@ -9,7 +9,6 @@ import math
 def getRandomNumbers(n, ones):
 	opts = [(r, c) for r in range(n) for c in range(n) if r != c]
 	random.shuffle(opts)
-	print(opts)
 	return opts[:ones]
 	# return opts[random.randint(0, len(opts) - 1)]
 	# while (True):
