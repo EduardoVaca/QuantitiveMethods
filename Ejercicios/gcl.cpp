@@ -11,7 +11,7 @@ int main () {
 		r = (double) z / m;
 		if (seen.find(r) == seen.end()) {
 			seen[r] = true;
-			std::cout << i << ".- r: " << r << std::endl;
+			std::cout << i << ".- r: " << r << " z: " << z << std::endl;
 		}
 		else break;
 	}

@@ -99,7 +99,9 @@
 (define (exponential_distribution lam lim1 lim2)
   (if (= lim1 lim2)
       (proc_ed lam lim1)
-      (- (proc_ed lam lim2) (proc_ed lam lim1))))
+      (-
+       (proc_ed lam lim2)
+       (proc_ed lam lim1))))
 ;(exponential_distribution 0.1667 10 10)
 ;(exponential_distribution 0.1667 5 10)
  
