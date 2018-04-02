@@ -7,28 +7,30 @@ import random
 import math
 
 def getRandomNumbers(n, ones):
-	opts = [(r, c) for r in range(n) for c in range(n) if r != c]
+	opts = [(r, c) for r in range(n) for c in range(n) if r != c and r < c]
 	random.shuffle(opts)
-	return opts[:ones]
+	return opts[:int(ones/2)]
 
 def numberOfOnes(p, n):
-	return int(math.ceil((n*n) * (p/100)))
+	ones = int(math.ceil((n*n) * (p/100.0)))
+	return  ones if ones % 2 == 0 else ones - 1
 
 
 def fillMatrix(matrix, n, ones):
 	for r, c in getRandomNumbers(n, ones):
 		matrix[r][c] = 1
+		matrix[c][r] = 1
 	return matrix
 
 def main():
 	n = int(input("Valor de n: "))
 	p = float(input("Porcentaje: "))
 	ones = numberOfOnes(p, n)
-	if (n*n) - n < ones:
+	if (n * n) - n < ones:
 		print("El porcentaje debe de ser menor")
 		return
-	matA = [[0 for i in range(n)] for j in range(n)]
 	print("numero de unos -> ", ones)
+	matA = [[0 for i in range(n)] for j in range(n)]
 	ans = fillMatrix(matA, n, ones)
 	min_far = 100000000000000000000000000
 	max_far = -1
@@ -38,9 +40,9 @@ def main():
 		for i in row:
 			if i == 1:
 				total += 1
+		total_ones += total
 		min_far = min(total, min_far)
 		max_far = max(total, max_far)
-		total_ones += total
 		print(row, total)
 	print("minimo: ", min_far)
 	print("maximo: ", max_far)
