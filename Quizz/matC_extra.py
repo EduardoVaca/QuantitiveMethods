@@ -1,9 +1,8 @@
-"""
-Matrix C - Extra
-Eduardo Vaca - A01207563
-Raul Mar - A00512318
-Javier Rodriguez - A01152572
-"""
+# teamorco
+# Raul Mar A00512318
+# Eduardo Vaca A01207563
+# Javier Rodriguez A01152572
+
 import random
 
 def custom_mid_square(seed):
@@ -22,7 +21,7 @@ def custom_mid_square(seed):
         if current_z[i] != '0':
             break
         else:
-            current_z[i] = str(random.randint(1, 9))        
+            current_z[i] = str(random.randint(1, 9))
     seed[0] = int(''.join(current_z[2:6]))
     return 1 if float('0.'+str(seed[0])) > 0.5 else 0
 
@@ -47,10 +46,10 @@ def main():
     # Pass seed as list to change it by reference on every iteration
     seed = [int(input('Seed (4 digits): '))]
     if len(str(seed[0])) == 4:
-        fo = open('matrix.txt', 'wb')             
-        generate_matrix(n, seed, fo)  
+        fo = open('matrix.txt', 'wb')
+        generate_matrix(n, seed, fo)
         fo.close()
-        print('Your matrix is in matrix.txt')      
+        print('Your matrix is in matrix.txt')
     else:
         print('Seed not of 4 digits')
 
