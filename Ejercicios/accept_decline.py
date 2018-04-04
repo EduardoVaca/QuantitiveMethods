@@ -12,7 +12,9 @@ def get_max_m(funcs):
     return current_max
 
 def get_two_rand():
-    return (random.uniform(0, 1), random.uniform(0, 1))
+    # If you want custom r1 and r2 in each iteration uncomment this line (comment the default return):
+    #return (float(input('r1: ')), float(input('r2: ')))
+    return (random.uniform(0, 1), random.uniform(0, 1))    
 
 def get_x_star(limit1, limit2, r1):
     return limit1+(limit2-limit1)*r1
@@ -27,6 +29,8 @@ def accept_decline_method(funcs, n):
     values = []
     M = get_max_m(funcs)
     counter = 0
+    # If yopu want iterations instead of number uncomment this (comment while statement):
+    #for _ in range(n):
     while len(values) < n:
         rands = get_two_rand()
         x = get_x_star(funcs[0][1][0], funcs[-1][1][1], rands[0])
@@ -49,7 +53,7 @@ def main():
     n_functions, n_iterations = [int(x) for x in input().split(' ')]
     funcs = []
     for i in range(n_functions):
-        limit1, limit2 = [int(x) for x in input().split(' ')]
+        limit1, limit2 = [int(x) for x in input('Limits for func {} (format: l1 l2): '.format(i+1)).split(' ')]
         if i == 0:
             funcs.append((my_func, (limit1, limit2)))
         else:
