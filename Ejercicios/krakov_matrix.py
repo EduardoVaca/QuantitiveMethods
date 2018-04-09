@@ -6,11 +6,7 @@ def read_matrix(filename):
     return np.matrix([list(map(float, x.strip().split(','))) for x in fo.readlines()])
 
 def matrix_product(matrix, n):
-    original_matrix = np.matrix(matrix)
-    for _ in range(n-1):
-        matrix *= original_matrix
-    print(matrix)        
-    return matrix
+    return matrix ** n
 
 filename, n = input('Filename: '), int(input('N: '))
-matrix_product(read_matrix(filename), n)
+print(matrix_product(read_matrix(filename), n))
