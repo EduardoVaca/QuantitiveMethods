@@ -8,5 +8,5 @@ def read_matrix(filename):
 def matrix_product(matrix, n):
     return matrix ** n
 
-filename, n = input('Filename: '), int(input('N: '))
-print(matrix_product(read_matrix(filename), n))
+# filename, n = input('Filename: '), int(input('N: '))
+# print(matrix_product(read_matrix(filename), n))
